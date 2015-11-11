@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/")
 public class HelloController {
   @Autowired
-  ServletContext context;    
+  ServletContext context;   
 
   @RequestMapping(method = RequestMethod.GET)
   public String printHello(ModelMap model, HttpServletRequest request) {
