@@ -32,12 +32,14 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping(value = "/")
 public class HelloController {
+  @Autowired
+  ServletContext context;    
 
   @RequestMapping(method = RequestMethod.GET)
   public String printHello(ModelMap model, HttpServletRequest request) {
 
     // get the view context from the servlet context
-    ViewContext viewContext = (ViewContext) request.getSession().getServletContext().getAttribute(ViewContext.CONTEXT_ATTRIBUTE);
+    ViewContext viewContext = (ViewContext) context.getAttribute(ViewContext.CONTEXT_ATTRIBUTE);
 
     // get the current user name from the view context
     String userName = viewContext.getUsername();
